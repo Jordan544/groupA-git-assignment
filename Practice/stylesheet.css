@@ -1,0 +1,132 @@
+body {
+    background-color: grey;
+
+}
+.header {
+    background-color: rgb(16, 16, 61);
+    height: 80px;
+    border-radius: 8px;
+    color: red;
+    margin: 10px;
+
+}
+h1 {
+   height: 70px;
+   line-height: 65px;
+   margin-left: 10px;
+   color: white;
+   text-align: center;
+   padding: 5px;
+}
+h2 {
+    color: blue;
+    font-family: Arial, Helvetica, sans-serif;
+}
+h3 {
+    color: blue;
+    font-family: Arial, Helvetica, sans-serif;
+}
+img {
+    max-width: 100%;
+    max-height: 100%;
+    float: right;
+    border-radius: 10px;
+}
+/* ==============================SIDEBAR================================ */
+.navbar {
+    background-color: rgba(57, 77, 70, 0.541);
+    height: 50px;
+    margin: 10px;
+    border-radius: 8px;
+}
+.navbar ul {
+    list-style: none;
+    text-align: center;
+    margin: 10px;
+    padding: 15px;
+    border-radius: 5px;
+
+}
+.navbar ul li {
+    display: inline;
+}
+.navbar ul li a {
+    text-decoration: none;
+    margin: 25px;
+    padding: 5px;
+    color: black;
+    
+}
+.navbar ul li a:hover {
+    background-color: rgb(16, 16, 61);
+    color: white;
+    border-radius: 5px;
+}
+/* ==============================MAIN=============================== */
+.main {
+    background-color:  #ffeaae;
+    margin-right: 300px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 120%;
+}
+/* ==============================SIDEBAR=========================== */
+#sidebar {
+    background-color:  #ffeaae;
+    float: right;
+    clear: right;
+    margin-top: 0px;
+    margin-bottom:10px ;
+    margin-left:30px;
+    margin-right:10px ;
+    border-radius: 8px;
+    padding: 25px;
+}
+#sidebar p a {
+    text-decoration: underline;
+
+}
+#sidebar p a:hover {
+    color: red;
+}
+#sidebar p a:visited {
+    color: rgb(24, 24, 121);
+}
+#sidebar p a:link {
+    color: pink;
+}
+/* ===========================FOOTER=========================== */
+.footer {
+    background-color: rgb(16, 16, 61);
+    height: 70px;
+    border-radius: 8px;
+    margin: 10px;
+    color: white;
+}
+.footer ul {
+    list-style: none;
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+    
+}
+.footer ul li {
+    display: inline;
+}
+.footer ul li a {
+    text-decoration: none;
+    padding: 5px;
+    margin: 25px;
+}
+.footer ul li a:hover{
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+}
+.footer p {
+    text-align: left;
+    margin: 10px;
+}

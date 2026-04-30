@@ -1,0 +1,19 @@
+#theform {
+    padding: 5px;
+    display: table;
+    background-color: brown;
+    color: white;
+    border: solid 3px black;
+}
+.row {
+    display: table-row;
+}
+.row label {
+    display: table-cell;
+    text-align: right;
+    padding: 2px;
+}
+.row input {
+    display: table-cell;
+    padding: 2px;
+}
