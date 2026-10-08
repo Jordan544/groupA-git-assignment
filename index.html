@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Diagnostic</title>
+    <style>
+        body {
+            background-color: #0d1117;
+            color: #58a6ff;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .card {
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 30px;
+            background: #161b22;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        }
+        .loader {
+            border: 4px solid #21262d;
+            border-top: 4px solid #58a6ff;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .progress-bar {
+            width: 100%;
+            background-color: #21262d;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 15px;
+        }
+        .progress {
+            width: 0%;
+            height: 10px;
+            background-color: #238636;
+            transition: width 0.3s;
+        }
+        .error-screen {
+            display: none;
+            color: #f85149;
+        }
+        .alert-box {
+            border: 2px solid #f85149;
+            background: rgba(248, 81, 73, 0.1);
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Stage 1: Fake Loading Screen -->
+    <div class="card" id="loading-card">
+        <h2>System Verification</h2>
+        <p>Scanning local device security protocols...</p>
+        <div class="loader"></div>
+        <p id="status-text">Initializing baseline checks (0%)...</p>
+        <div class="progress-bar">
+            <div class="progress" id="progress"></div>
+        </div>
+    </div>
+
+    <!-- Stage 2: Fake Error Screen -->
+    <div class="card error-screen" id="error-card">
+        <h2 style="color: #f85149;">CRITICAL SYSTEM FAILURE</h2>
+        <div class="alert-box">
+            <strong>ERROR CODE: 0x80070005</strong><br>
+            <span>Unauthorized Data Extraction Detected</span>
+        </div>
+        <p style="color: #c9d1d9; font-size: 14px; margin-top: 15px;">
+            Fatal memory dump sequence initiated. Device storage access compromised.
+        </p>
+        <p id="countdown" style="font-size: 20px; font-weight: bold; color: #f85149;"></p>
+    </div>
+
+    <script>
+        const statusText = document.getElementById('status-text');
+        const progressBar = document.getElementById('progress');
+        const loadingCard = document.getElementById('loading-card');
+        const errorCard = document.getElementById('error-card');
+        const countdown = document.getElementById('countdown');
+
+        let percent = 0;
+        const messages = [
+            "Initializing baseline checks...",
+            "Accessing internal file directory...",
+            "Bypassing firewall constraints...",
+            "Extracting target metadata...",
+            "Finalizing dump..."
+        ];
+
+        const interval = setInterval(() => {
+            percent += 20;
+            progressBar.style.width = percent + "%";
+            statusText.innerText = `${messages[percent / 20 - 1]} (${percent}%)`;
+
+            if (percent >= 100) {
+                clearInterval(interval);
+                setTimeout(() => {
+                    loadingCard.style.display = 'none';
+                    errorCard.style.display = 'block';
+                    startCountdown();
+                }, 800);
+            }
+        }, 1000);
+
+        function startCountdown() {
+            let timer = 10;
+            countdown.innerText = `Self-destructing memory bank in: ${timer}s`;
+            const countInterval = setInterval(() => {
+                timer--;
+                if (timer > 0) {
+                    countdown.innerText = `Self-destructing memory bank in: ${timer}s`;
+                } else {
+                    clearInterval(countInterval);
+                    countdown.innerText = "PRANKED! 💥";
+                }
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
